@@ -1,0 +1,178 @@
+:root {
+    --orange: hsl(25, 97%, 53%);
+    --white: hsl(0, 0%, 100%);
+    --light-grey: hsl(217, 12%, 63%);
+    --medium-grey: hsl(216, 12%, 54%);
+    --dark-blue: hsl(213, 19%, 18%);
+    --very-dark-blue: hsl(216, 12%, 8%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "Overpass";
+    color: var(--white);
+}
+
+html,
+body {
+    font-size: 100%;
+    background: var(--very-dark-blue);
+}
+
+.container {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    margin-top: 20vh;
+    background-color: var(--dark-blue);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.circle {
+    height: 40px;
+    width: 40px;
+    background-color: hsla(216, 12%, 54%, 0.2);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.star-icon {
+    position: absolute;
+}
+
+.card h1 {
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 15px;
+    color: var(--medium-grey);
+    margin-bottom: 30px;
+}
+
+.rating-stars {
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    display: none;
+}
+
+label {
+    width: 5vmin;
+    height: 5vmin;
+    display: inline-flex;
+    cursor: pointer;
+    margin: 0.5vmin 0.65vmin;
+    transition: all 1s ease 0s;
+}
+
+label[for=rs0] {
+    display: none;
+}
+
+label:hover {
+    transition: all 0.25s ease 0s;
+    background-color: var(--medium-grey) !important;
+}
+
+label span {
+    color: var(--light-grey);
+    font-size: 15px;
+    margin-top: 4px;
+}
+
+label:hover span,
+input:checked+label span {
+    color: var(--white) !important;
+}
+
+input:checked+label {
+    background-color: var(--orange);
+}
+
+@keyframes pulse {
+    50% {
+        font-size: 6.25vmin;
+    }
+}
+
+.footer {
+    margin-top: 20px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    text-transform: uppercase;
+    background-color: var(--orange);
+    color: var(--white);
+    border-radius: 20px;
+}
+
+.btn-submit:hover {
+    background-color: var(--white);
+    color: var(--orange);
+}
+
+.d-none {
+    display: none !important;
+}
+
+.d-block {
+    display: block !important;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.selected {
+    display: flex;
+    justify-content: center;
+}
+
+.selected div {
+    background-color: hsla(216, 12%, 54%, 0.2);
+    width: fit-content;
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: var(--orange);
+}
+
+.selected div span {
+    color: var(--orange);
+}
+
+.selected~h1 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#thanks .card p {
+    text-align: center;
+
+}
+
+@media screen and (min-width: 375px) {
+    .container {
+        width: 325px;
+    }
+}

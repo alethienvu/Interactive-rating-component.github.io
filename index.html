@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <section class="container" id="rating">
+    <div class="card">
+      <div class="header">
+        <div class="circle">
+          <img src="./images/icon-star.svg" alt="" class="star-icon">
+        </div>
+      </div>
+      <h1>How did we do?</h1>
+      <p>Please let us know how we did with your support request. All feedback is appreciated 
+        to help us improve our offering!</p>
+      <div class="rating-stars">
+        <input type="radio" name="rating" id="rs0" checked><label class="circle" for="rs0"></label>
+        <input type="radio" name="rating" id="rs1" value="1"><label class="circle" for="rs1"><span>1</span></label>
+        <input type="radio" name="rating" id="rs2" value="2"><label class="circle" for="rs2"><span>2</span></label>
+        <input type="radio" name="rating" id="rs3" value="3"><label class="circle" for="rs3"><span>3</span></label>
+        <input type="radio" name="rating" id="rs4" value="4"><label class="circle" for="rs4"><span>4</span></label>
+        <input type="radio" name="rating" id="rs5" value="5"><label class="circle" for="rs5"><span>5</span></label>
+      </div>
+      <div class="footer">
+        <button class="btn-submit" onclick="onSubmit()">SUBMIT</button>
+        <script>
+          function onSubmit(){
+            const rating = document.getElementById('rating');
+            if(!rating.classList.contains('d-none')){
+              rating.classList.add('d-none')
+            }
+            
+            const thanks = document.getElementById('thanks');
+            if(thanks.classList.contains('d-none')){
+              thanks.classList.remove('d-none')
+            }
+            const a = document.getElementsByName('rating')
+            for(let i = 0; i<a.length; i++){
+              const b = a[i];
+              if(b.checked === true){
+                console.log(b.value);
+                const selectedStar = document.getElementById('selected-star')
+                selectedStar.innerText = b.value
+              }
+            }
+          }
+        </script>
+      </div>
+    </div>
+  </section>
+  <section class="container d-none" id="thanks">
+    <div class="card">
+      <div class="image">
+        <img src="./images/illustration-thank-you.svg" alt="">
+      </div>
+      <div class="selected">
+        <div>You selected <span id="selected-star">4</span> out of 5</div>
+      </div>
+      <h1>Thank you!</h1>
+      <p>We appreciate you taking the time to give a rating. If you ever need more support, 
+        don’t hesitate to get in touch!</p>
+    </div>
+  </section>
+</body>
+</html>
